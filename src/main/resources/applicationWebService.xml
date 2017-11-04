@@ -1,0 +1,18 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!-- 导入资源 -->
+    <import resource="classpath:spring/common/configloader.xml"/>
+
+    <!-- bean -->
+    <import resource="classpath:spring/web/web-context.xml"/>
+
+    <!-- 队列 -->
+    <bean id="mqProcessorStarter" class="com.spirit.mq.MqProcessorStarter">
+        <property name="mqProcessorName" value="${service.mqProcessor.name}"/>
+        <property name="mqStart" value="${service.mqProcessor.start}"/>
+    </bean>
+
+</beans>
